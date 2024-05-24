@@ -8,8 +8,9 @@ app.use(bodyParser.json());
 const userRoutes = require("./routes/userAuth")
 const projectRoutes = require("./routes/tasks")
 
-app.use("/api/v1/user", userRoutes)
-app.use("/api/v1/tasks", projectRoutes)
+const API = process.env.API;
+app.use(`${API}/user`, userRoutes)
+app.use(`${API}/tasks`, projectRoutes)
 
 const PORT = process.env.APP_PORT || 5555
 app.listen(PORT, ()=>{

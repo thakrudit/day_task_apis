@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     task_team: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     task_details: {
       type: DataTypes.STRING(255),
@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     task_progress: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     is_complete: {
       type: DataTypes.TINYINT,
