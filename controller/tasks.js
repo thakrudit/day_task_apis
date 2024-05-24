@@ -2,30 +2,30 @@ const helper = require("../config/helper");
 const db = require("../models");
 
 const User = db.users
-const Task = db.projects
+const Task = db.tasks
 
-User.hasOne(Task, { foreignkey: "project_team" })
+// User.hasOne(Task, { foreignkey: "task_team" })
 
 module.exports = {
     createTask: async (req, res) => {
         try {
             const required = {
                 user_id: req.user.id,
-                project_name: req.body.project_name,
-                project_date: req.body.project_date,
-                // project_team: req.body.project_team,
-                project_details: req.body.project_details,
-                project_progress: req.body.project_progress
+                task_name: req.body.task_name,
+                task_date: req.body.task_date,
+                // task_team: req.body.task_team,
+                task_details: req.body.task_details,
+                task_progress: req.body.task_progress
             }
             const non_required = {}
             const requestedData = await helper.validateObject(required, non_required)
 
             const user = await Task.create({
-                project_name: requestedData.project_name,
-                project_date: requestedData.project_date,
-                project_team: requestedData.user_id,
-                project_details: requestedData.project_details,
-                project_progress: requestedData.project_progress
+                task_name: requestedData.task_name,
+                task_date: requestedData.task_date,
+                task_team: requestedData.user_id,
+                task_details: requestedData.task_details,
+                task_progress: requestedData.task_progress
             })
             return helper.success(res, "Project Created Successfully", user);
         }

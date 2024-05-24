@@ -1,14 +1,14 @@
 var DataTypes = require("sequelize").DataTypes;
-var _projects = require("./projects");
+var _tasks = require("./tasks");
 var _users = require("./users");
 
 function initModels(sequelize) {
-  var projects = _projects(sequelize, DataTypes);
+  var tasks = _tasks(sequelize, DataTypes);
   var users = _users(sequelize, DataTypes);
 
 
   return {
-    projects,
+    tasks,
     users,
   };
 }

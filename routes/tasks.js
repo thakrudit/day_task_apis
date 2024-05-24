@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const ProjectController = require("../controller/project")
+const ProjectController = require("../controller/tasks.js")
 const requireAuthentication = require("../passport/index.js").authenticateUser
 
 router.post('/create-task', requireAuthentication, ProjectController.createTask)
