@@ -1,8 +1,9 @@
 const helper = require("../config/helper");
 const db = require("../models");
 
-const User = db.users
-const Task = db.tasks
+const User = db.users;
+const Task = db.tasks;
+const TaskMembers = db.task_members;
 
 // User.hasOne(Task, { foreignkey: "task_team" })
 
